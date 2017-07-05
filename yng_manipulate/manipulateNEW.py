@@ -118,7 +118,8 @@ try:
 			logger.setLevel(logging.DEBUG)
 			logger.exception("---> Fatal error in Manipulate <---")
 			logger.debug('-------------------END------------------------\n\n\n')
-			logging.shutdown()
+			# logging.shutdown()
+			raise
 
 		
 		os.remove(str(fileEdit+'.log'))
@@ -406,7 +407,8 @@ try:
 			logger.setLevel(logging.DEBUG)
 			logger.exception("---> Fatal error in Manipulate <---")
 			logger.debug('-------------------END------------------------\n\n\n')
-			logging.shutdown()
+			# logging.shutdown()
+			raise
 		os.remove(str(fileEdit+'.log'))
 		sys.exit
 
@@ -436,7 +438,8 @@ try:
 			logger.setLevel(logging.DEBUG)
 			logger.exception("---> Fatal error in Manipulate <---")
 			logger.debug('-------------------END------------------------\n\n\n')
-			logging.shutdown()
+			# logging.shutdown()
+			raise
 		os.remove(str(fileEdit+'.log'))
 		sys.exit
 
@@ -528,7 +531,8 @@ try:
 			logger.setLevel(logging.DEBUG)
 			logger.exception("---> Fatal error in Manipulate <---")
 			logger.debug('-------------------END------------------------\n\n\n')
-			logging.shutdown()
+			# logging.shutdown()
+			raise
 		os.remove(str(fileEdit+'.log'))
 		sys.exit()
 
@@ -587,7 +591,8 @@ try:
 			logger.setLevel(logging.DEBUG)
 			logger.exception("---> Fatal error in Manipulate <---")
 			logger.debug('-------------------END------------------------\n\n\n')
-			logging.shutdown()
+			# logging.shutdown()
+			raise
 		os.remove(str(fileEdit+'.log'))
 		sys.exit()
 
@@ -850,7 +855,8 @@ try:
 					logger.setLevel(logging.DEBUG)
 					logger.exception("---> Fatal error in Manipulate <---")
 					logger.debug('-------------------END------------------------\n\n\n')
-					logging.shutdown()
+					# logging.shutdown()
+					raise
 				os.remove(str(fileEdit+'.log'))
 				sys.exit()
 
@@ -902,7 +908,8 @@ try:
 					logger.setLevel(logging.DEBUG)
 					logger.exception("---> Fatal error in Manipulate <---")
 					logger.debug('-------------------END------------------------\n\n\n')
-					logging.shutdown()
+					# logging.shutdown()
+					raise
 				os.remove(str(fileEdit+'.log'))
 				sys.exit()
 
@@ -1721,7 +1728,8 @@ try:
 										logger.setLevel(logging.DEBUG)
 										logger.exception("---> Fatal error in Manipulate <---")
 										logger.debug('-------------------END------------------------\n\n\n')
-										logging.shutdown()
+										# logging.shutdown()
+										raise
 									os.remove(str(fileEdit+'.log'))
 									sys.exit()
 
@@ -1910,7 +1918,8 @@ except Exception as e:
 	logger.setLevel(logging.DEBUG)
 	logger.exception("---> Fatal error in Manipulate <---")
 	logger.debug('-------------------END------------------------\n\n\n')
-	logging.shutdown()
+	# logging.shutdown()
+	raise
 
 
 #print line
