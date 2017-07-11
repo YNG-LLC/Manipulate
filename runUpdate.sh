@@ -5,7 +5,4 @@ cd /var/www/html/Manipulate/
 
 git fetch origin master
 git status
-git pull origin master
-
-
-
+git reset --hard origin/master
