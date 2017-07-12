@@ -269,6 +269,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		if((xCheck[0] == 1) & (yCheck[0] == 1)):            # if xCheck and yCheck are TRUE, the bed will activate
 			print "bed #1 is ON"
 			cloneFile.write(zoneON1)                        # writes to manipulate output
+			cloneFile.write("G28")
 			heatBedsActive[0] = 1                            # States the bed has been turned on
 			zoneActivatedREVEAL3D[0] = 1
 			
@@ -770,6 +771,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		if((xCheck[0] == 1) & (yCheck[0] == 1)):     # if xCheck and yCheck are TRUE, the bed will activate
 			print "bed #1 is ON"
 			cloneFile.write(zoneON1)         # writes to manipulate output
+			cloneFile.write(zoneON3)
 			heatBedsActive[0] = 1            # States the bed has been turned on
 			zoneActivatedGT[0] = 1
 			if DUPE_CHECK > 0:
