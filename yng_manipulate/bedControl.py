@@ -269,7 +269,6 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		if((xCheck[0] == 1) & (yCheck[0] == 1)):            # if xCheck and yCheck are TRUE, the bed will activate
 			print "bed #1 is ON"
 			cloneFile.write(zoneON1)                        # writes to manipulate output
-			cloneFile.write("G28")
 			heatBedsActive[0] = 1                            # States the bed has been turned on
 			zoneActivatedREVEAL3D[0] = 1
 			
@@ -930,6 +929,8 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 	if ((TOOL_LAYER4 > 0) and (int(TOOL_SECLAYER4) > 0)):
 		cloneFile.write("M109 T3 S"+str(TOOL_SECLAYER4)+"\r\n")
 
+	if (heatBedsActive[0] == 1):
+		cloneFile.write("G28")
 
 	gInject.gInject(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y,cloneFile,DUPE_CHECK,BedType,MAX_X, MAX_Y)
 
