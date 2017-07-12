@@ -215,19 +215,19 @@ try:
 	odroidDir = "/home/odroid/.octoprint/uploads/"
 
 	###### Customer Printers ######
-	if os.path.isdir(piDir) {
+	if (os.path.isdir(piDir)):
 
 		FinalFileLocation = "/home/pi/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
 		newFileLocation = newFileLocation + "temp.tmp" #make it a temp instead of final
-	}
+	
 
 
 
 	# ##### OFFICE PRINTERS #####
-	if os.path.isdir(odroidDir) {
+	if os.path.isdir(odroidDir):
 		FinalFileLocation = "/home/odroid/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
 		newFileLocation = newFileLocation + "temp.tmp" #make it a temp instead of final
-	}
+	
 
 
 	# print newFileLocation
