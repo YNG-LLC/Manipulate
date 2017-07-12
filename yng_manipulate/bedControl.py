@@ -23,7 +23,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 
 	zoneActivatedREVEAL3D = [0]*16
 	zoneActivatedGT = [0]*4
-	waitTime = " W10\n"
+	waitTime = "10"
 
 	# print "M109 @ Variables init. : " + str(M109_TOOL)
 	# print "M104 @ Variables init. : " + str(M104_TOOL)
@@ -270,7 +270,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 			print "bed #1 is ON"
 			cloneFile.write(zoneON1)                        # writes to manipulate output
 			heatBedsActive[0] = 1                            # States the bed has been turned on
-			zoneActivatedREVEAL3D[0] = 1
+			zoneActivatedREVEAL3D[0] = 1	# for WaitTime
 			
 			if DUPE_CHECK > 0:
 				cloneFile.write(zoneON3)
@@ -708,38 +708,74 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 
 		# ###  Add WaitTime to beds #### #
 
-		if zoneActivatedREVEAL3D[0] == 1:
-			cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime)
-		if zoneActivatedREVEAL3D[1] == 2:
-			cloneFile.write("B16 P1 " + "S" + str(TOOL_BED2)+waitTime)
-		if zoneActivatedREVEAL3D[2] == 3:
-			cloneFile.write("B16 P2 " + "S" + str(TOOL_BED3)+waitTime)
-		if zoneActivatedREVEAL3D[3] == 4:
-			cloneFile.write("B16 P3 " + "S" + str(TOOL_BED4)+waitTime)
-		if zoneActivatedREVEAL3D[4] == 5:
-			cloneFile.write("B16 P4 " + "S" + str(TOOL_BED5)+waitTime)
-		if zoneActivatedREVEAL3D[5] == 6:
-			cloneFile.write("B16 P5 " + "S" + str(TOOL_BED6)+waitTime)
-		if zoneActivatedREVEAL3D[6] == 7:
-			cloneFile.write("B16 P6 " + "S" + str(TOOL_BED7)+waitTime)
-		if zoneActivatedREVEAL3D[7] == 8:
-			cloneFile.write("B16 P7 " + "S" + str(TOOL_BED8)+waitTime)
-		if zoneActivatedREVEAL3D[8] == 9:
-			cloneFile.write("B16 P8 " + "S" + str(TOOL_BED9)+waitTime)
-		if zoneActivatedREVEAL3D[9] == 10:
-			cloneFile.write("B16 P9 " + "S" + str(TOOL_BED10)+waitTime)
-		if zoneActivatedREVEAL3D[10] == 11:
-			cloneFile.write("B16 P10 " + "S" + str(TOOL_BED11)+waitTime)
-		if zoneActivatedREVEAL3D[11] == 12:
-			cloneFile.write("B16 P11 " + "S" + str(TOOL_BED12)+waitTime)
-		if zoneActivatedREVEAL3D[12] == 13:
-			cloneFile.write("B16 P12 " + "S" + str(TOOL_BED13)+waitTime)
-		if zoneActivatedREVEAL3D[13] == 14:
-			cloneFile.write("B16 P13 " + "S" + str(TOOL_BED14)+waitTime)
-		if zoneActivatedREVEAL3D[14] == 15:
-			cloneFile.write("B16 P14 " + "S" + str(TOOL_BED15)+waitTime)
-		if zoneActivatedREVEAL3D[15] == 16:
-			cloneFile.write("B16 P15 " + "S" + str(TOOL_BED16)+waitTime)
+		if ((BedType == "reveal3D") or (BedType == "FRANK3") and  (DUPE_CHECK == 0)):
+			if zoneActivatedREVEAL3D[0] == 1:
+				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[1] == 2:
+				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[2] == 3:
+				cloneFile.write("B16 P2 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[3] == 4:
+				cloneFile.write("B16 P3 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[4] == 5:
+				cloneFile.write("B16 P4 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[5] == 6:
+				cloneFile.write("B16 P5 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[6] == 7:
+				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[7] == 8:
+				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[8] == 9:
+				cloneFile.write("B16 P8 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[9] == 10:
+				cloneFile.write("B16 P9 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[10] == 11:
+				cloneFile.write("B16 P10 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[11] == 12:
+				cloneFile.write("B16 P11 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[12] == 13:
+				cloneFile.write("B16 P12 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[13] == 14:
+				cloneFile.write("B16 P13 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[14] == 15:
+				cloneFile.write("B16 P14 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[15] == 16:
+				cloneFile.write("B16 P15 " + "S" + str(TOOL_BED1)+waitTime)
+
+		elif ((BedType == "reveal3D") or (BedType == "FRANK3") and (DUPE_CHECK > 0)):
+
+			if zoneActivatedREVEAL3D[0] == 1:
+				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[1] == 2:
+				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[2] == 3:
+				cloneFile.write("B16 P2 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[3] == 4:
+				cloneFile.write("B16 P3 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[4] == 5:
+				cloneFile.write("B16 P4 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[5] == 6:
+				cloneFile.write("B16 P5 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[6] == 7:
+				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[7] == 8:
+				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[8] == 9:
+				cloneFile.write("B16 P8 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[9] == 10:
+				cloneFile.write("B16 P9 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[10] == 11:
+				cloneFile.write("B16 P10 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[11] == 12:
+				cloneFile.write("B16 P11 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[12] == 13:
+				cloneFile.write("B16 P12 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[13] == 14:
+				cloneFile.write("B16 P13 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[14] == 15:
+				cloneFile.write("B16 P14 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[15] == 16:
+				cloneFile.write("B16 P15 " + "S" + str(TOOL_BED1)+waitTime)
 
 
 
@@ -770,12 +806,11 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		if((xCheck[0] == 1) & (yCheck[0] == 1)):     # if xCheck and yCheck are TRUE, the bed will activate
 			print "bed #1 is ON"
 			cloneFile.write(zoneON1)         # writes to manipulate output
-			cloneFile.write(zoneON3)
 			heatBedsActive[0] = 1            # States the bed has been turned on
 			zoneActivatedGT[0] = 1
 			if DUPE_CHECK > 0:
 				cloneFile.write(zoneON2)
-				print "im not the double"
+				# print "im not the double"
 				heatBedsActive[1] = 2
 				zoneActivatedGT[1] = 2
 
@@ -803,7 +838,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		if((xCheck[1] == 1) & (yCheck[1] == 1)):
 			print "bed #2 is ON"
 			cloneFile.write(zoneON2)
-			print "NO im not the double"
+			# print "NO im not the double"
 			heatBedsActive[1] = 1
 			zoneActivatedGT[1] = 2
 
@@ -831,7 +866,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		if((xCheck[2] == 1) & (yCheck[2] == 1)):
 			print "bed #3 is ON"
 			cloneFile.write(zoneON3)
-			cloneFile.write("M109 T2 S"+str(TOOL_BED3));
+			# cloneFile.write("M109 T2 S"+str(TOOL_BED3)); #wtf is this
 			heatBedsActive[2] = 1
 			zoneActivatedGT[2] = 3
 
@@ -871,18 +906,42 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 
 		# ###  Add WaitTime to beds #### #
 
-		if zoneActivatedGT[0] == 1:
-			print "Added Wait Time for Bed 1"
-			cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime)
-		if zoneActivatedGT[1] == 2:
-			print "Added Wait Time for Bed 2"
-			cloneFile.write("B16 P1 " + "S" + str(TOOL_BED2)+waitTime)
-		if zoneActivatedGT[2] == 3:
-			print "Added Wait Time for Bed 3"
-			cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+waitTime)
-		if zoneActivatedGT[3] == 4:
-			print "Added Wait Time for Bed 4"
-			cloneFile.write("B16 P7 " + "S" + str(TOOL_BED1)+waitTime)
+
+		if ((BedType == "GT") and  (DUPE_CHECK == 0)):
+			if zoneActivatedREVEAL3D[0] == 1:
+				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[1] == 2:
+				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[2] == 3:
+				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[3] == 5:
+				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED1)+waitTime)
+
+
+		elif ((BedType == "GT") and (DUPE_CHECK > 0)):
+			if zoneActivatedREVEAL3D[0] == 1:
+				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[1] == 2:
+				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+waitTime)
+			if zoneActivatedREVEAL3D[2] == 3:
+				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED2)+waitTime)
+			if zoneActivatedREVEAL3D[3] == 4:
+				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED2)+waitTime)
+
+
+
+		# if zoneActivatedGT[0] == 1:
+		# 	print "Added Wait Time for Bed 1"
+		# 	cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime)
+		# if zoneActivatedGT[1] == 2:
+		# 	print "Added Wait Time for Bed 2"
+		# 	cloneFile.write("B16 P1 " + "S" + str(TOOL_BED2)+waitTime)
+		# if zoneActivatedGT[2] == 3:
+		# 	print "Added Wait Time for Bed 3"
+		# 	cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+waitTime)
+		# if zoneActivatedGT[3] == 4:
+		# 	print "Added Wait Time for Bed 4"
+		# 	cloneFile.write("B16 P7 " + "S" + str(TOOL_BED1)+waitTime)
 
 
 		print "X-GToffset is: "+str(x_GToffset)
@@ -930,7 +989,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		cloneFile.write("M109 T3 S"+str(TOOL_SECLAYER4)+"\r\n")
 
 	if (heatBedsActive[0] == 1):
-		cloneFile.write("G28")
+		cloneFile.write("G28\n\r")
 
 	gInject.gInject(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y,cloneFile,DUPE_CHECK,BedType,MAX_X, MAX_Y)
 
