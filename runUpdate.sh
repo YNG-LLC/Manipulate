@@ -3,7 +3,7 @@ cd /var/www/html/Manipulate/
 
 
 
-#git fetch origin master
+git fetch 
 #git status
 #git reset --hard origin/master
 #git pull origin master
