@@ -208,8 +208,28 @@ try:
 	newFileLocation = os.path.splitext(fileLocation)[0]
 
 	# newFileLocation = "/home/odroid/.octoprint/uploads/" + fileEdit +"zone"+ str(zone) + ".gco"
-	FinalFileLocation = "/home/pi/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
-	newFileLocation = newFileLocation + "temp.tmp" #make it a temp instead of final
+
+
+
+	piDir = os.path.isdir("/home/pi/.octoprint/uploads/")
+	odroidDir = os.path,isdir("/home/odroid/.octoprint/uploads/")
+
+	###### Customer Printers ######
+	if piDirectory == True {
+
+		FinalFileLocation = "/home/pi/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
+		newFileLocation = newFileLocation + "temp.tmp" #make it a temp instead of final
+	}
+
+
+
+	# ##### OFFICE PRINTERS #####
+	if odroidDir == True {
+		FinalFileLocation = "/home/odroid/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
+		newFileLocation = newFileLocation + "temp.tmp" #make it a temp instead of final
+	}
+
+
 	# print newFileLocation
 
 	####################################################################################################
