@@ -218,7 +218,7 @@ try:
 	if (os.path.isdir(piDir)):
 
 		FinalFileLocation = "/home/pi/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
-		newFileLocation = newFileLocation + "temp.tmp" #make it a temp instead of final
+		newFileLocation = newFileLocation + "temp"+"__zone"+ str(zone) +".tmp" #make it a temp instead of final
 	
 
 
@@ -226,7 +226,7 @@ try:
 	# ##### OFFICE PRINTERS #####
 	if os.path.isdir(odroidDir):
 		FinalFileLocation = "/home/odroid/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
-		newFileLocation = newFileLocation + "temp.tmp" #make it a temp instead of final
+		newFileLocation = newFileLocation + "temp"+"__zone"+ str(zone) +".tmp" #make it a temp instead of final
 	
 
 
