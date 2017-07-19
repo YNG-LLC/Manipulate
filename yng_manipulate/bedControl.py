@@ -908,26 +908,25 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 
 
 		if ((BedType == "GT") and  (DUPE_CHECK == 0)):
-			if zoneActivatedREVEAL3D[0] == 1:
-				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime+ waitTime)
-			if zoneActivatedREVEAL3D[1] == 2:
-				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+waitTime+ waitTime)
-			if zoneActivatedREVEAL3D[2] == 3:
-				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+waitTime+ waitTime)
-			if zoneActivatedREVEAL3D[3] == 5:
-				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED1)+waitTime+ waitTime)
+			if zoneActivatedGT[0] == 1:
+				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
+			if zoneActivatedGT[1] == 2:
+				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
+			if zoneActivatedGT[2] == 3:
+				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
+			if zoneActivatedGT[3] == 4:
+				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
 
 
 		elif ((BedType == "GT") and (DUPE_CHECK > 0)):
-			if zoneActivatedREVEAL3D[0] == 1:
-				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+waitTime+ waitTime)
-			if zoneActivatedREVEAL3D[1] == 2:
-				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+waitTime+ waitTime)
-			if zoneActivatedREVEAL3D[2] == 3:
-				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED2)+waitTime+ waitTime)
-			if zoneActivatedREVEAL3D[3] == 4:
-				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED2)+waitTime+ waitTime)
-
+			if zoneActivatedGT[0] == 1:
+				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
+			if zoneActivatedGT[1] == 2:
+				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
+			if zoneActivatedGT[2] == 3:
+				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED2)+" E1"+ waitTime)
+			if zoneActivatedGT[3] == 4:
+				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED2)+" E1"+ waitTime)
 
 
 		# if zoneActivatedGT[0] == 1:
@@ -989,7 +988,7 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 		cloneFile.write("M109 T3 S"+str(TOOL_SECLAYER4)+"\r\n")
 
 	if (heatBedsActive[0] == 1):
-		cloneFile.write("G28\n\r")
+		cloneFile.write("G28\n")
 
 	gInject.gInject(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y,cloneFile,DUPE_CHECK,BedType,MAX_X, MAX_Y)
 
