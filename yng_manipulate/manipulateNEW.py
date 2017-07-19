@@ -214,19 +214,22 @@ try:
 	piDir = "/home/pi/.octoprint/uploads/"
 	odroidDir = "/home/odroid/.octoprint/uploads/"
 
-	###### Customer Printers ######
+	####  Q(taskID)_(print file name)_(MaterialUsed)__(zone_#)   ####
+
+	###### Customer Printers ######   
 	if (os.path.isdir(piDir)):
 
-		FinalFileLocation = "/home/pi/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
-		newFileLocation = newFileLocation + "temp"+"__zone"+ str(zone) +".tmp" #make it a temp instead of final
-	
+		# FinalFileLocation = "/home/pi/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
+		FinalFileLocation = "/home/pi/.octoprint/uploads/" + "Q"+ TASKID +"_"+fileEdit+"_"+Material+"_zone"+str(zone) + ".gcode"
+		newFileLocation = newFileLocation + "temp_"+ "Q"+ TASKID +"__zone"+ str(zone) +".tmp" #make it a temp instead of final
 
 
 
 	# ##### OFFICE PRINTERS #####
 	if os.path.isdir(odroidDir):
-		FinalFileLocation = "/home/odroid/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
-		newFileLocation = newFileLocation + "temp"+"__zone"+ str(zone) +".tmp" #make it a temp instead of final
+		# FinalFileLocation = "/home/odroid/.octoprint/uploads/" + fileEdit +"__zone"+ str(zone) + ".gcode"
+		FinalFileLocation = "/home/odroid/.octoprint/uploads/" + "Q"+ TASKID +"_"+fileEdit+"_"+Material+"_zone"+str(zone) + ".gcode"
+		newFileLocation = newFileLocation + "temp_"+ "Q"+ TASKID +"__zone"+ str(zone) +".tmp" #make it a temp instead of final
 	
 
 
