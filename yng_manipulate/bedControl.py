@@ -922,9 +922,9 @@ def activateBeds(Zone_Max_X, Zone_Min_X, Zone_Max_Y, Zone_Min_Y, newFile, newFil
 			if zoneActivatedGT[0] == 1:
 				cloneFile.write("B16 P0 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
 			if zoneActivatedGT[1] == 2:
-				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
+				cloneFile.write("B16 P1 " + "S" + str(TOOL_BED2)+" E1"+ waitTime)
 			if zoneActivatedGT[2] == 3:
-				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED2)+" E1"+ waitTime)
+				cloneFile.write("B16 P6 " + "S" + str(TOOL_BED1)+" E1"+ waitTime)
 			if zoneActivatedGT[3] == 4:
 				cloneFile.write("B16 P7 " + "S" + str(TOOL_BED2)+" E1"+ waitTime)
 
