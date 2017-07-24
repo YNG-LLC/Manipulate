@@ -1457,7 +1457,7 @@ try:
 						if((tlCount == 0) & ((x == "G") | (x == "g"))):
 							getGCode = 0
 							if((tlCount == 0) & ((x != "G1 ") | (x != "g1 ") | (x != "G0 ") | (x != "g0 "))):
-								getGCode = 1
+								 getGCode = 1
 							# writeStart = 1
 							# print "found G_Code"
 							# newFile.write("ICU")
@@ -1783,6 +1783,10 @@ try:
 						tempZfloat = tempZ
 						# print "this is the missing Z: " + line
 						newFile.write(line)
+					if ((getGCode >= 1) & ("Z" not in line) & ("E" not in line) & ("X" not in line) & ("Y" not in line)):
+						newFile.write(line)
+						print "we found something without XY or Z"
+						print line
 					# if(tempZ != -1):
 					#     print tempZ                       # Z values while ignoring the -1 from Lookup.py
 					#     if(tempZ < .6):
