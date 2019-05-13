@@ -141,7 +141,8 @@ try:
 
 	# Select SQL query - try to select the file from DB in order to grab variables
 	try:
-		findFile = cur.execute("SELECT file FROM yngPrints WHERE task_id = %s", (TASKID))
+        ts = "SELECT file FROM yngPrints WHERE task_id = " + TASKID
+		findFile = cur.execute(ts)
 		#queryFile = the fetched sql "file" name fom yngPrints DB
 		queryFile = cur.fetchone()
 		#fileName is result from "file" column, must take it from the queryFile array
@@ -161,7 +162,8 @@ try:
 	# For the temperature selection
 	# Select SQL query - try to select the material from DB in order to grab variables
 	try:
-		Material = cur.execute("SELECT MaterialType FROM yngPrints WHERE task_id = %s", (TASKID))
+        ts = "SELECT MaterialType FROM yngPrints WHERE task_id = " +TASKID
+		Material = cur.execute(ts)
 		#queryFile = the fetched sql "file" name fom yngPrints DB
 		queryFile = cur.fetchone()
 		#fileName is result from "file" column, must take it from the queryFile array
@@ -181,7 +183,8 @@ try:
 
 	#### Check if File was UPLOADED for Duplication or Single Printing #######
 	try:
-		nozzle = cur.execute("SELECT nozzleMode FROM yngPrints WHERE task_id = %s", (TASKID))
+        ts = "SELECT nozzleMode FROM yngPrints WHERE task_id = " + TASKID
+		nozzle = cur.execute(ts)
 		#queryFile = the fetched sql "file" name fom yngPrints DB
 		queryFile = cur.fetchone()
 		#fileName is result from "file" column, must take it from the queryFile array
@@ -276,7 +279,8 @@ try:
 	queryArray = 0
 	try:
 	#   findTemps = cur.execute("SELECT Bed_First_Layer,Bed_Sec_Layer,HotEnd_First_Layer,HotEnd_Sec_Layer FROM materialDB WHERE Material = %s",(Material))
-		cur.execute("SELECT Bed0_First_Layer, Bed0_Sec_Layer, HotEnd0_First_Layer, HotEnd0_Sec_Layer, Bed1_First_Layer, Bed1_Sec_Layer, HotEnd1_First_Layer, HotEnd1_Sec_Layer, Bed2_First_Layer, Bed2_Sec_Layer, HotEnd2_First_Layer, HotEnd2_Sec_Layer, Bed3_First_Layer, Bed3_Sec_Layer, HotEnd3_First_Layer, HotEnd3_Sec_Layer FROM materialDB WHERE Material = %s",(Material))
+        ts = "SELECT Bed0_First_Layer, Bed0_Sec_Layer, HotEnd0_First_Layer, HotEnd0_Sec_Layer, Bed1_First_Layer, Bed1_Sec_Layer, HotEnd1_First_Layer, HotEnd1_Sec_Layer, Bed2_First_Layer, Bed2_Sec_Layer, HotEnd2_First_Layer, HotEnd2_Sec_Layer, Bed3_First_Layer, Bed3_Sec_Layer, HotEnd3_First_Layer, HotEnd3_Sec_Layer FROM materialDB WHERE Material = " + Material
+		cur.execute(ts)
 		# queryFile = the fetched sql "file" name fom yngPrints DB
 		queryTemps = cur.fetchone()
 	#    dbbedArray = [queryArray[0] for queryArray in cur.fetchone()]
@@ -412,8 +416,8 @@ try:
 
 			with open(str(fileEdit+'.log'), 'r') as myfile: 
 				data = myfile.read().replace('\n', '')
-
-			cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+            ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+			cur.execute(ts)
 			db.commit()
 			cur.close()
 			db.close()
@@ -444,8 +448,8 @@ try:
 
 			with open(str(fileEdit+'.log'), 'r') as myfile: 
 				data = myfile.read().replace('\n', '')
-
-			cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+            ts = "UPDATE yngPrints SET errorLog = " + data + " WHERE task_id = " + TASKID
+			cur.execute(ts)
 			db.commit()
 			cur.close()
 			db.close()
@@ -535,8 +539,8 @@ try:
 				data = myfile.read().replace('\n', '')
 
 
-
-			cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+            ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+			cur.execute(ts)
 			db.commit()
 			cur.close()
 			db.close()
@@ -595,8 +599,8 @@ try:
 				data = myfile.read().replace('\n', '')
 
 
-
-			cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+            ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+			cur.execute(ts)
 			db.commit()
 			cur.close()
 			db.close()
@@ -856,8 +860,8 @@ try:
 						data = myfile.read().replace('\n', '')
 
 
-
-					cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+                    ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+					cur.execute(ts)
 					db.commit()
 					cur.close()
 					db.close()
@@ -909,8 +913,8 @@ try:
 						data = myfile.read().replace('\n', '')
 
 
-
-					cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+                    ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+					cur.execute(ts)
 					db.commit()
 					cur.close()
 					db.close()
@@ -1718,7 +1722,8 @@ try:
 									print "The program will now terminate !!!\n"
 									print "MAX_X " +str(MAX_X)+ "\n"
 									print "MAX_Y " +str(MAX_Y)+ "\n"
-									cur.execute("UPDATE yngPrints SET statusValue = %s WHERE task_id = %s", ("TERMINATED", TASKID))
+                                    ts = "UPDATE yngPrints SET statusValue = TERMINATED WHERE task_id = " + TASKID)
+									cur.execute(ts)
 
 									db.commit()
 									cur.close()
@@ -1732,8 +1737,8 @@ try:
 
 										with open(str(fileEdit+'.log'), 'r') as myfile: 
 											data = myfile.read().replace('\n', '')
-
-										cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+                                        ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+										cur.execute(ts)
 										db.commit()
 										cur.close()
 										db.close()
@@ -1882,7 +1887,8 @@ try:
 
 	# Try block attempts to update table with new values from output of manipulate
 	try:
-	   cur.execute("UPDATE yngPrints SET statusValue = %s, bigmaxX=%s, smallminX=%s, bigmaxY=%s, smallminY=%s, bigmaxZ=%s, printerType=%s WHERE task_id = %s""", (statusValue, bigmaxX, smallminX, bigmaxY, smallminY, bigmaxZ, printerType, TASKID))
+       ts = "UPDATE yngPrints SET statusValue = " + statusValue + ", bigmaxX=" + bigmaxX +", smallminX=" + smallminX + ", bigmaxY=" +bigmaxY +", smallminY=" + smallminY +", bigmaxZ=" + bigmaxZ +", printerType="+printerType+" WHERE task_id = " + TASKID 
+	   cur.execute(ts)
 	   db.commit()
 	   print TASKID + " TASKID UPDATING " + statusValue
 	   print BedType + "BedType UPDATING" + statusValue
@@ -1924,8 +1930,8 @@ try:
 		print "Log Exists....Sending to DB"
 		with open(str(fileEdit+'.log'), 'r') as myfile: 
 			data = myfile.read().replace('\n', '')
-
-		cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+        ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+		cur.execute(ts)
 		db.commit()
 		cur.close()
 		db.close()
