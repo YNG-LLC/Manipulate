@@ -1,0 +1,75 @@
+11/23/2018 09:15:14 PM ERROR    ---> Fatal error in Manipulate <---
+Traceback (most recent call last):
+  File "/var/www/html/Manipulate/yng_manipulate/manipulateNEW.py", line 144, in <module>
+    findFile = cur.execute("SELECT file FROM yngPrints WHERE task_id = %s", (TASKID))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 210, in execute
+    query = query % args
+TypeError: not all arguments converted during string formatting
+11/23/2018 09:15:14 PM DEBUG    -------------------END------------------------
+
+
+
+11/23/2018 09:24:07 PM ERROR    ---> Fatal error in Manipulate <---
+Traceback (most recent call last):
+  File "/var/www/html/Manipulate/yng_manipulate/manipulateNEW.py", line 144, in <module>
+    findFile = cur.execute("SELECT file FROM yngPrints WHERE task_id = %s", (TASKID))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 210, in execute
+    query = query % args
+TypeError: not all arguments converted during string formatting
+11/23/2018 09:24:07 PM DEBUG    -------------------END------------------------
+
+
+
+05/13/2019 05:30:41 PM ERROR    ---> Fatal error in Manipulate <---
+Traceback (most recent call last):
+  File "/var/www/html/Manipulate/yng_manipulate/manipulateNEW.py", line 144, in <module>
+    findFile = cur.execute("SELECT file FROM yngPrints WHERE task_id = %s", (TASKID))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 210, in execute
+    query = query % args
+TypeError: not all arguments converted during string formatting
+05/13/2019 05:30:41 PM DEBUG    -------------------END------------------------
+
+
+
+05/13/2019 05:31:24 PM ERROR    ---> Fatal error in Manipulate <---
+Traceback (most recent call last):
+  File "/var/www/html/Manipulate/yng_manipulate/manipulateNEW.py", line 144, in <module>
+    findFile = cur.execute("SELECT file FROM yngPrints WHERE task_id = %s", (TASKID))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 210, in execute
+    query = query % args
+TypeError: not all arguments converted during string formatting
+05/13/2019 05:31:24 PM DEBUG    -------------------END------------------------
+
+
+
+05/13/2019 05:31:49 PM ERROR    ---> Fatal error in Manipulate <---
+Traceback (most recent call last):
+  File "/var/www/html/Manipulate/yng_manipulate/manipulateNEW.py", line 144, in <module>
+    findFile = cur.execute("SELECT file FROM yngPrints WHERE task_id = %s", (TASKID))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 210, in execute
+    query = query % args
+TypeError: not all arguments converted during string formatting
+05/13/2019 05:31:49 PM DEBUG    -------------------END------------------------
+
+
+
+05/13/2019 05:32:52 PM ERROR    ---> Fatal error in Manipulate <---
+Traceback (most recent call last):
+  File "/var/www/html/Manipulate/yng_manipulate/manipulateNEW.py", line 144, in <module>
+    findFile = cur.execute("SELECT file FROM yngPrints WHERE task_id = %s", (TASKID))
+  File "/usr/lib/python2.7/dist-packages/MySQLdb/cursors.py", line 210, in execute
+    query = query % args
+TypeError: not all arguments converted during string formatting
+05/13/2019 05:32:52 PM DEBUG    -------------------END------------------------
+
+
+
+05/13/2019 06:11:10 PM ERROR    ---> Fatal error in Manipulate <---
+Traceback (most recent call last):
+  File "/var/www/html/Manipulate/yng_manipulate/manipulateNEW.py", line 352, in <module>
+    TOOL1 = str(queryTemps[2])             # tool = extruder Temperature
+NameError: name 'queryTemps' is not defined
+05/13/2019 06:11:10 PM DEBUG    -------------------END------------------------
+
+
+
