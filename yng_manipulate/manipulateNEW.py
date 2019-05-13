@@ -1154,9 +1154,9 @@ try:
 	
 
 		if((writeStart == 1) & (file_done == 0)):
-			tempX = ['']*1000
-			tempY = ['']*1000
-			tempZ = ['']*1000
+			tempX = ['']*100000
+			tempY = ['']*100000
+			tempZ = ['']*100000
 			tmpSX = ""
 			tmpSY = ""
 			tmpSZ = ""
