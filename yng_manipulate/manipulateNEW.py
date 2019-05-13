@@ -281,7 +281,7 @@ try:
 	queryArray = 0
 	try:
 	#   findTemps = cur.execute("SELECT Bed_First_Layer,Bed_Sec_Layer,HotEnd_First_Layer,HotEnd_Sec_Layer FROM materialDB WHERE Material = %s",(Material))
-		ts = "SELECT Bed0_First_Layer, Bed0_Sec_Layer, HotEnd0_First_Layer, HotEnd0_Sec_Layer, Bed1_First_Layer, Bed1_Sec_Layer, HotEnd1_First_Layer, HotEnd1_Sec_Layer, Bed2_First_Layer, Bed2_Sec_Layer, HotEnd2_First_Layer, HotEnd2_Sec_Layer, Bed3_First_Layer, Bed3_Sec_Layer, HotEnd3_First_Layer, HotEnd3_Sec_Layer FROM materialDB WHERE Material = " + str(Material)
+		ts = "SELECT Bed0_First_Layer, Bed0_Sec_Layer, HotEnd0_First_Layer, HotEnd0_Sec_Layer, Bed1_First_Layer, Bed1_Sec_Layer, HotEnd1_First_Layer, HotEnd1_Sec_Layer, Bed2_First_Layer, Bed2_Sec_Layer, HotEnd2_First_Layer, HotEnd2_Sec_Layer, Bed3_First_Layer, Bed3_Sec_Layer, HotEnd3_First_Layer, HotEnd3_Sec_Layer FROM materialDB WHERE Material is " + str(Material)
 		cur.execute(ts)
 		# queryFile = the fetched sql "file" name fom yngPrints DB
 		queryTemps = cur.fetchone()
