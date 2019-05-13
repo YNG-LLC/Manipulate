@@ -1602,8 +1602,8 @@ try:
 										tmpSY = str(float(tmpSY) + (y_16offset*3))
 
 									if((zone == 1) | (zone == 8) | (zone == 9) | (zone == 16)):
-										#tmpSX = str(float(tmpSX) + 0.0)
-										tmpSX = str(float(tmpSX))
+										tmpSX = str(float(tmpSX) + 0.0)
+										#tmpSX = str(float(tmpSX))
 										tmpS = str(''.join(tmpLineStart))
 										#tmpS = "start " + str(''.join(tmpLineStart))
 										tmpFullS = tmpS
@@ -1682,8 +1682,8 @@ try:
 									 #   tmpSY = str(float(tmpSY) + (y_offset*3))
 
 									if((zone == 1) | (zone == 4)):# | (zone == 9) | (zone == 16)):
-										#tmpSX = str(float(tmpSX) + 0.0)
-										tmpSX = str(float(tmpSX))
+										tmpSX = str(float(tmpSX) + 0.0)
+										#tmpSX = str(float(tmpSX))
 										tmpS = str(''.join(tmpLineStart))
 										#tmpS = "start " + str(''.join(tmpLineStart))
 										tmpFullS = tmpS
