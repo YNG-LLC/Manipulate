@@ -1574,6 +1574,7 @@ try:
 								print tmpSY
 								print tmpLineEnd  
 								print tempX
+								print line
 								print "end of misc"
 								if DUPE_CHECK > 0:
 									x_16offset = (MAX_X/2)
