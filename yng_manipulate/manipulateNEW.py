@@ -1568,9 +1568,10 @@ try:
 								#print tempY
 								tmpSX = str(''.join(tempX))
 								tmpSY = str(''.join(tempY))
-								# print line
-								# print tmpSX
-								# print tmpSY
+								print line
+								print "This is where the issue is"
+								print tmpSX                                
+								print tmpSY
 								if DUPE_CHECK > 0:
 									x_16offset = (MAX_X/2)
 									y_16offset = (MAX_Y/4)
