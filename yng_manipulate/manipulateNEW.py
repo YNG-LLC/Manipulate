@@ -103,8 +103,8 @@ try:
 
 			with open(str(fileEdit+'.log'), 'r') as myfile: 
 				data = myfile.read().replace('\n', '')
-
-			cur.execute("UPDATE yngPrints SET errorLog = %s WHERE task_id = %s""", (data, TASKID))
+			ts = "UPDATE yngPrints SET errorLog = "+data+" WHERE task_id = "+TASKID
+			cur.execute(ts)
 			db.commit()
 			cur.close()
 			db.close()
@@ -1895,7 +1895,7 @@ try:
 
 	# Try block attempts to update table with new values from output of manipulate
 	try:
-	   ts = "UPDATE yngPrints SET statusValue = " + statusValue + ", bigmaxX=" + bigmaxX +", smallminX=" + smallminX + ", bigmaxY=" +bigmaxY +", smallminY=" + smallminY +", bigmaxZ=" + bigmaxZ +", printerType="+printerType+" WHERE task_id = " + TASKID 
+	   ts = "UPDATE yngPrints SET statusValue = '" + statusValue + "', bigmaxX=" + bigmaxX +", smallminX=" + smallminX + ", bigmaxY=" +bigmaxY +", smallminY=" + smallminY +", bigmaxZ=" + bigmaxZ +", printerType="+printerType+" WHERE task_id = " + TASKID 
 	   cur.execute(ts)
 	   db.commit()
 	   print TASKID + " TASKID UPDATING " + statusValue
