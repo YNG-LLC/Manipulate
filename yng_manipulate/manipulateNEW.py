@@ -103,7 +103,7 @@ try:
 
 			with open(str(fileEdit+'.log'), 'r') as myfile: 
 				data = myfile.read().replace('\n', '')
-			ts = "UPDATE yngPrints SET errorLog = "+data+" WHERE task_id = "+TASKID
+			ts = "UPDATE yngPrints SET errorLog = '"+data+"' WHERE task_id = '"+TASKID+"'"
 			cur.execute(ts)
 			db.commit()
 			cur.close()
@@ -143,7 +143,7 @@ try:
 
 	# Select SQL query - try to select the file from DB in order to grab variables
 	try:
-		ts = "SELECT file FROM yngPrints WHERE task_id = " + TASKID
+		ts = "SELECT file FROM yngPrints WHERE task_id = '" + TASKID+"'"
 		findFile = cur.execute(ts)
 		#queryFile = the fetched sql "file" name fom yngPrints DB
 		queryFile = cur.fetchone()
@@ -164,7 +164,7 @@ try:
 	# For the temperature selection
 	# Select SQL query - try to select the material from DB in order to grab variables
 	try:
-		ts = "SELECT MaterialType FROM yngPrints WHERE task_id = " +TASKID
+		ts = "SELECT MaterialType FROM yngPrints WHERE task_id = '" +TASKID+"'"
 		Material = cur.execute(ts)
 		#queryFile = the fetched sql "file" name fom yngPrints DB
 		queryFile = cur.fetchone()
@@ -185,7 +185,7 @@ try:
 
 	#### Check if File was UPLOADED for Duplication or Single Printing #######
 	try:
-		ts = "SELECT nozzleMode FROM yngPrints WHERE task_id = " + TASKID
+		ts = "SELECT nozzleMode FROM yngPrints WHERE task_id = '" + TASKID+"'"
 		nozzle = cur.execute(ts)
 		#queryFile = the fetched sql "file" name fom yngPrints DB
 		queryFile = cur.fetchone()
@@ -419,7 +419,7 @@ try:
 
 			with open(str(fileEdit+'.log'), 'r') as myfile: 
 				data = myfile.read().replace('\n', '')
-			ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+			ts = "UPDATE yngPrints SET errorLog = '" + data +"' WHERE task_id = '" + TASKID+"'"
 			cur.execute(ts)
 			db.commit()
 			cur.close()
@@ -451,7 +451,7 @@ try:
 
 			with open(str(fileEdit+'.log'), 'r') as myfile: 
 				data = myfile.read().replace('\n', '')
-			ts = "UPDATE yngPrints SET errorLog = " + data + " WHERE task_id = " + TASKID
+			ts = "UPDATE yngPrints SET errorLog = '" + data + "' WHERE task_id = '" + TASKID+"'"
 			cur.execute(ts)
 			db.commit()
 			cur.close()
@@ -542,7 +542,7 @@ try:
 				data = myfile.read().replace('\n', '')
 
 
-			ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+			ts = "UPDATE yngPrints SET errorLog = '" + data +"' WHERE task_id = '" + TASKID+"'"
 			cur.execute(ts)
 			db.commit()
 			cur.close()
@@ -602,7 +602,7 @@ try:
 				data = myfile.read().replace('\n', '')
 
 
-			ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+			ts = "UPDATE yngPrints SET errorLog = '" + data +"' WHERE task_id = '" + TASKID+"'"
 			cur.execute(ts)
 			db.commit()
 			cur.close()
@@ -863,7 +863,7 @@ try:
 						data = myfile.read().replace('\n', '')
 
 
-					ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+					ts = "UPDATE yngPrints SET errorLog = '" + data +"' WHERE task_id = '" + TASKID+"'"
 					cur.execute(ts)
 					db.commit()
 					cur.close()
@@ -916,7 +916,7 @@ try:
 						data = myfile.read().replace('\n', '')
 
 
-					ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+					ts = "UPDATE yngPrints SET errorLog = '" + data +"' WHERE task_id = '" + TASKID+"'"
 					cur.execute(ts)
 					db.commit()
 					cur.close()
@@ -1730,7 +1730,7 @@ try:
 									print "The program will now terminate !!!\n"
 									print "MAX_X " +str(MAX_X)+ "\n"
 									print "MAX_Y " +str(MAX_Y)+ "\n"
-									ts = "UPDATE yngPrints SET statusValue = TERMINATED WHERE task_id = " + TASKID
+									ts = "UPDATE yngPrints SET statusValue = 'TERMINATED' WHERE task_id = '" + TASKID+"'"
 									cur.execute(ts)
 
 									db.commit()
@@ -1745,7 +1745,7 @@ try:
 
 										with open(str(fileEdit+'.log'), 'r') as myfile: 
 											data = myfile.read().replace('\n', '')
-										ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+										ts = "UPDATE yngPrints SET errorLog = '" + data +"' WHERE task_id = '" + TASKID+"'"
 										cur.execute(ts)
 										db.commit()
 										cur.close()
@@ -1895,7 +1895,7 @@ try:
 
 	# Try block attempts to update table with new values from output of manipulate
 	try:
-	   ts = "UPDATE yngPrints SET statusValue = '" + statusValue + "', bigmaxX=" + bigmaxX +", smallminX=" + smallminX + ", bigmaxY=" +bigmaxY +", smallminY=" + smallminY +", bigmaxZ=" + bigmaxZ +", printerType="+printerType+" WHERE task_id = " + TASKID 
+	   ts = "UPDATE yngPrints SET statusValue = '" + statusValue + "', bigmaxX=" + bigmaxX +", smallminX=" + smallminX + ", bigmaxY=" +bigmaxY +", smallminY=" + smallminY +", bigmaxZ=" + bigmaxZ +", printerType='"+printerType+"' WHERE task_id = '" + TASKID +"'"
 	   cur.execute(ts)
 	   db.commit()
 	   print TASKID + " TASKID UPDATING " + statusValue
@@ -1938,7 +1938,7 @@ try:
 		print "Log Exists....Sending to DB"
 		with open(str(fileEdit+'.log'), 'r') as myfile: 
 			data = myfile.read().replace('\n', '')
-		ts = "UPDATE yngPrints SET errorLog = " + data +" WHERE task_id = " + TASKID
+		ts = "UPDATE yngPrints SET errorLog = '" + data +"' WHERE task_id = '" + TASKID+"'"
 		cur.execute(ts)
 		db.commit()
 		cur.close()
